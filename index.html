@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="terminal" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeliveryFramework — AI-augmented delivery that actually ships</title>
+  <meta name="description" content="AI-augmented delivery that actually ships. From requirements to working software — 2 experts, not 20 consultants. Days, not months. Real code, not vendor lock-in.">
+  <link rel="icon" type="image/svg+xml" href="images/brand_icon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- daisyUI + Tailwind CSS v4 -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: 'JetBrains Mono', monospace;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="bg-base-100 text-base-content">
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       NAVBAR
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <nav class="navbar fixed top-0 z-50 bg-base-100/80 backdrop-blur border-b border-base-300 px-4">
+    <div class="max-w-5xl mx-auto w-full flex items-center">
+      <!-- Brand -->
+      <div class="flex-1">
+        <a href="#" class="flex items-center gap-2 text-primary font-bold text-sm">
+          <svg viewBox="0 0 32 32" class="w-6 h-6" aria-hidden="true">
+            <path fill="currentColor" d="M3,10 C3,-2 29,-2 29,10 Q29,12 27,12 Q23.5,8 20,12 Q16,8 12,12 Q8.5,8 5,12 Q3,12 3,10Z"/>
+            <g stroke="currentColor" stroke-width="0.7" stroke-linecap="round" fill="none">
+              <line x1="5" y1="12" x2="12.5" y2="23"/><line x1="12" y1="12" x2="14.5" y2="23"/>
+              <line x1="20" y1="12" x2="17.5" y2="23"/><line x1="27" y1="12" x2="19.5" y2="23"/>
+            </g>
+            <rect fill="currentColor" x="11" y="23" width="10" height="8"/>
+          </svg>
+          DeliveryFramework
+        </a>
+      </div>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#problem" class="nav-link btn btn-ghost btn-sm text-xs">Problem</a>
+        <a href="#business-case" class="nav-link btn btn-ghost btn-sm text-xs">Business Case</a>
+        <a href="#how-it-works" class="nav-link btn btn-ghost btn-sm text-xs">How It Works</a>
+        <a href="#platform" class="nav-link btn btn-ghost btn-sm text-xs">Platform</a>
+        <a href="#tech" class="nav-link btn btn-ghost btn-sm text-xs">Tech</a>
+        <a href="#contact" class="btn btn-primary btn-sm text-xs ml-2">Get in Touch</a>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <div class="dropdown dropdown-end md:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-200 border border-base-300 rounded-box z-10 w-48 p-2 shadow-lg mt-2">
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#business-case">Business Case</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#platform">Platform</a></li>
+          <li><a href="#tech">Tech</a></li>
+          <li class="mt-2"><a href="#contact" class="btn btn-primary btn-sm text-xs">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       1. HERO
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="hero" class="min-h-screen flex items-center justify-center pt-14">
+    <div class="text-center max-w-3xl px-4">
+      <!-- Brand icon -->
+      <svg viewBox="0 0 32 32" class="w-20 h-20 mx-auto mb-8 text-primary" aria-hidden="true">
+        <path fill="currentColor" d="M3,10 C3,-2 29,-2 29,10 Q29,12 27,12 Q23.5,8 20,12 Q16,8 12,12 Q8.5,8 5,12 Q3,12 3,10Z"/>
+        <g stroke="currentColor" stroke-width="0.7" stroke-linecap="round" fill="none">
+          <line x1="5" y1="12" x2="12.5" y2="23"/><line x1="12" y1="12" x2="14.5" y2="23"/>
+          <line x1="20" y1="12" x2="17.5" y2="23"/><line x1="27" y1="12" x2="19.5" y2="23"/>
+        </g>
+        <rect fill="currentColor" x="11" y="23" width="10" height="8"/>
+      </svg>
+
+      <h1 class="text-4xl md:text-6xl font-bold text-primary mb-6">DeliveryFramework</h1>
+
+      <p class="text-xl md:text-2xl mb-10 h-8">
+        <span id="typed-text"></span><span class="cursor">&#9608;</span>
+      </p>
+
+      <div class="text-base-content/50 space-y-1 mb-12 text-sm md:text-base">
+        <p>From problem statement to fully tested software.</p>
+        <p>2 experts, not 20 consultants.</p>
+        <p>Days, not months. Real code, not vendor lock-in.</p>
+      </div>
+
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="#problem" class="btn btn-primary">See how it works</a>
+        <a href="#contact" class="btn btn-outline border-base-content/20 text-base-content hover:bg-base-200 hover:border-base-content/30">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       2. THE PROBLEM
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="problem" class="py-16 md:py-24 scroll-mt-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 reveal">
+
+      <div class="bg-base-200 rounded border border-base-300">
+        <!-- Terminal header -->
+        <div class="terminal-header">
+          <span class="terminal-dot" style="background:#F85149"></span>
+          <span class="terminal-dot" style="background:#D29922"></span>
+          <span class="terminal-dot" style="background:#3FB950"></span>
+          <span class="text-xs text-base-content/40 ml-2">the-problem &mdash; current state</span>
+        </div>
+
+        <div class="p-4 md:p-8">
+          <h2 class="text-2xl font-bold text-primary mb-2">Why the Status Quo Doesn't Work</h2>
+          <p class="text-base-content/50 text-sm mb-6">Six problems that AI-augmented delivery solves.</p>
+
+          <div class="space-y-2">
+
+            <!-- Pain point 1 -->
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="checkbox">
+              <div class="collapse-title font-bold text-sm">
+                <span class="text-primary mr-2">1.</span>Enterprise SaaS &mdash; the game has changed
+              </div>
+              <div class="collapse-content text-sm text-base-content/70">
+                <p>AI-augmented delivery on open-source foundations now makes it faster and cheaper to build a solution that fits the business exactly &mdash; with AI process automation built in &mdash; than to bend a generic platform into shape with expensive specialist consultants. The economics that justified the SaaS trade-off no longer hold for new initiatives.</p>
+              </div>
+            </div>
+
+            <!-- Pain point 2 -->
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="checkbox">
+              <div class="collapse-title font-bold text-sm">
+                <span class="text-primary mr-2">2.</span>Big Consulting &amp; SIs &mdash; cost without capability
+              </div>
+              <div class="collapse-content text-sm text-base-content/70">
+                <p>Large consulting firms charge premium rates but deliver slowly. Engagements balloon in scope and cost, staffed by rotating teams of junior developers. When the engagement ends, institutional knowledge walks out the door. The client is left dependent on the next expensive engagement.</p>
+              </div>
+            </div>
+
+            <!-- Pain point 3 -->
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="checkbox">
+              <div class="collapse-title font-bold text-sm">
+                <span class="text-primary mr-2">3.</span>Low-Code dead end &mdash; AI can't drag-and-drop
+              </div>
+              <div class="collapse-content text-sm text-base-content/70">
+                <p>AI writes, reads, and reasons about code natively. It cannot drag and drop or manipulate visual designers. The very abstractions that made low-code "easy" for humans have become a barrier for AI-assisted development &mdash; without the vendor lock-in, licensing costs, or ceiling on customization.</p>
+              </div>
+            </div>
+
+            <!-- Pain point 4 -->
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="checkbox">
+              <div class="collapse-title font-bold text-sm">
+                <span class="text-primary mr-2">4.</span>The AI execution gap &mdash; pilots that never scale
+              </div>
+              <div class="collapse-content text-sm text-base-content/70">
+                <p>Most enterprise AI initiatives stall as pilots that never reach production. There's a vast gap between "we use ChatGPT for emails" and "AI is fundamentally transforming how we deliver software." Organizations lack a credible, repeatable path from AI ambition to measurable business outcomes.</p>
+              </div>
+            </div>
+
+            <!-- Pain point 5 -->
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="checkbox">
+              <div class="collapse-title font-bold text-sm">
+                <span class="text-primary mr-2">5.</span>Big Agile regression &mdash; ceremony replaced rigor
+              </div>
+              <div class="collapse-content text-sm text-base-content/70">
+                <p>Two decades of enterprise "Agile" adoption paradoxically degraded the SDLC discipline it promised to improve. Requirements analysis, architecture, specifications, and documentation &mdash; replaced with endless loosely-defined sprints and ad-hoc coding. No traceability, inconsistent quality, no institutional memory.</p>
+              </div>
+            </div>
+
+            <!-- Pain point 6 -->
+            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+              <input type="checkbox">
+              <div class="collapse-title font-bold text-sm">
+                <span class="text-primary mr-2">6.</span>The initiative bottleneck &mdash; backlog grows, nothing ships
+              </div>
+              <div class="collapse-content text-sm text-base-content/70">
+                <p>When every project requires a six-figure consulting engagement or a twelve-month internal build, only the highest-priority initiatives survive the business case. The rest sit in a queue, accumulating opportunity cost. The organization knows what needs fixing but can't afford to fix it all.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       3. THE BUSINESS CASE
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="business-case" class="py-16 md:py-24 scroll-mt-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 reveal">
+
+      <div class="bg-base-200 rounded border border-base-300">
+        <div class="terminal-header">
+          <span class="terminal-dot" style="background:#F85149"></span>
+          <span class="terminal-dot" style="background:#D29922"></span>
+          <span class="terminal-dot" style="background:#3FB950"></span>
+          <span class="text-xs text-base-content/40 ml-2">business-case &mdash; output metrics</span>
+        </div>
+
+        <div class="p-4 md:p-8">
+          <h2 class="text-2xl font-bold text-primary mb-2">Numbers That Matter</h2>
+          <p class="text-base-content/50 text-sm mb-8">What changes when delivery economics change.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div class="p-5 border-l-2 border-primary bg-base-100 rounded-r">
+              <p class="font-bold text-lg text-base-content mb-1">2 experts, not 15&ndash;20</p>
+              <p class="text-sm text-base-content/50">A solution architect and expert developer, augmented by AI, deliver what traditionally required a full consulting workstream. Not by cutting corners &mdash; by eliminating the repetitive work that inflated team sizes.</p>
+            </div>
+
+            <div class="p-5 border-l-2 border-primary bg-base-100 rounded-r">
+              <p class="font-bold text-lg text-base-content mb-1">Days to working MVP</p>
+              <p class="text-sm text-base-content/50">From first commit to a working application with auth, RBAC, CRUD interfaces, file storage, notifications, and audit trails &mdash; in days, not months. Framework conventions eliminate entire categories of risk.</p>
+            </div>
+
+            <div class="p-5 border-l-2 border-primary bg-base-100 rounded-r">
+              <p class="font-bold text-lg text-base-content mb-1">Near-zero cost discovery</p>
+              <p class="text-sm text-base-content/50">AI video understanding analyses screen recordings of current processes and produces comprehensive current-state assessments &mdash; more detailed and more accurate than consultant interviews, at a fraction of the cost.</p>
+            </div>
+
+            <div class="p-5 border-l-2 border-primary bg-base-100 rounded-r">
+              <p class="font-bold text-lg text-base-content mb-1">No per-seat licensing</p>
+              <p class="text-sm text-base-content/50">Open-source foundations eliminate compounding platform costs. No proprietary runtime, no visual designer, no vendor lock-in. The organization owns its code, data, and deployment.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       4. HOW IT WORKS
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="how-it-works" class="py-16 md:py-24 scroll-mt-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 reveal">
+
+      <div class="bg-base-200 rounded border border-base-300">
+        <div class="terminal-header">
+          <span class="terminal-dot" style="background:#F85149"></span>
+          <span class="terminal-dot" style="background:#D29922"></span>
+          <span class="terminal-dot" style="background:#3FB950"></span>
+          <span class="text-xs text-base-content/40 ml-2">architecture &mdash; overview</span>
+        </div>
+
+        <div class="p-4 md:p-8">
+          <h2 class="text-2xl font-bold text-primary mb-2">Three Integrated Layers</h2>
+          <p class="text-base-content/50 text-sm mb-8">The methodology defines what needs to happen. The platform provides the foundation. AI skills execute with speed and consistency.</p>
+
+          <!-- Architecture diagram -->
+          <div class="border border-base-300 rounded overflow-hidden mb-8 text-sm">
+            <div class="flex border-b border-base-300">
+              <div class="p-3 md:p-4 w-36 md:w-44 shrink-0 font-bold text-primary border-r border-base-300">Methodology</div>
+              <div class="p-3 md:p-4 text-base-content/70">Structured discovery &rarr; specs &rarr; delivery &rarr; production</div>
+            </div>
+            <div class="flex border-b border-base-300">
+              <div class="p-3 md:p-4 w-36 md:w-44 shrink-0 font-bold text-primary border-r border-base-300">Platform</div>
+              <div class="p-3 md:p-4 text-base-content/70">Convention-driven framework that AI builds on</div>
+            </div>
+            <div class="flex">
+              <div class="p-3 md:p-4 w-36 md:w-44 shrink-0 font-bold text-primary border-r border-base-300">AI Skills</div>
+              <div class="p-3 md:p-4 text-base-content/70">Execute each step with speed and consistency</div>
+            </div>
+          </div>
+
+          <p class="text-sm text-base-content/70 mb-10">These three layers reinforce each other. The methodology defines what needs to happen. The platform provides the technical foundation. The AI skills execute with speed and consistency.</p>
+
+          <!-- Delivery flow -->
+          <h3 class="text-sm font-bold text-base-content/50 uppercase tracking-wider mb-4">Delivery Flow</h3>
+          <div class="flex flex-wrap items-center gap-2 text-sm">
+            <span class="badge badge-outline border-base-content/30 text-base-content">Problem Statement</span>
+            <span class="text-primary">&rarr;</span>
+            <span class="badge badge-outline border-base-content/30 text-base-content">Stakeholder Analysis</span>
+            <span class="text-primary">&rarr;</span>
+            <span class="badge badge-outline border-base-content/30 text-base-content">Domain Model</span>
+            <span class="text-primary">&rarr;</span>
+            <span class="badge badge-outline border-base-content/30 text-base-content">Resource Specs</span>
+            <span class="text-primary">&rarr;</span>
+            <span class="badge badge-primary text-primary-content font-bold">Working Software</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       5. PLATFORM FEATURES
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="platform" class="py-16 md:py-24 scroll-mt-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 reveal">
+
+      <div class="bg-base-200 rounded border border-base-300">
+        <div class="terminal-header">
+          <span class="terminal-dot" style="background:#F85149"></span>
+          <span class="terminal-dot" style="background:#D29922"></span>
+          <span class="terminal-dot" style="background:#3FB950"></span>
+          <span class="text-xs text-base-content/40 ml-2">platform &mdash; capabilities</span>
+        </div>
+
+        <div class="p-4 md:p-8">
+          <h2 class="text-2xl font-bold text-primary mb-2">What You Get</h2>
+          <p class="text-base-content/50 text-sm mb-6">Real screenshots of working applications built on the framework. Not mockups.</p>
+
+          <!-- Screenshot tabs -->
+          <div role="tablist" class="tabs tabs-border">
+
+            <input type="radio" name="screenshots" role="tab" class="tab text-xs" aria-label="Detail Pages" checked="checked">
+            <div role="tabpanel" class="tab-content pt-6">
+              <div class="mockup-window bg-base-300 border border-base-300">
+                <img src="images/screenshots/platform-detail.avif" alt="Detail page with field sections, tabs, and related records" class="w-full">
+              </div>
+              <p class="mt-4 text-sm text-base-content/50">Detail pages with field sections, tabs, and related records &mdash; generated from declarative resource definitions.</p>
+            </div>
+
+            <input type="radio" name="screenshots" role="tab" class="tab text-xs" aria-label="Kanban">
+            <div role="tabpanel" class="tab-content pt-6">
+              <div class="mockup-window bg-base-300 border border-base-300">
+                <img src="images/screenshots/platform-kanban.avif" alt="Kanban board view for state machine resources" class="w-full">
+              </div>
+              <p class="mt-4 text-sm text-base-content/50">Kanban boards for state machine resources &mdash; automatic from any resource with a status workflow.</p>
+            </div>
+
+            <input type="radio" name="screenshots" role="tab" class="tab text-xs" aria-label="List Pages">
+            <div role="tabpanel" class="tab-content pt-6">
+              <div class="mockup-window bg-base-300 border border-base-300">
+                <img src="images/screenshots/platform-list.avif" alt="List page with searchable, sortable, paginated table" class="w-full">
+              </div>
+              <p class="mt-4 text-sm text-base-content/50">Searchable, sortable, paginated tables &mdash; built-in from day one, not hand-wired per resource.</p>
+            </div>
+
+            <input type="radio" name="screenshots" role="tab" class="tab text-xs" aria-label="Cards">
+            <div role="tabpanel" class="tab-content pt-6">
+              <div class="mockup-window bg-base-300 border border-base-300">
+                <img src="images/screenshots/platform-cards.avif" alt="Card view for visual browsing" class="w-full">
+              </div>
+              <p class="mt-4 text-sm text-base-content/50">Card views for visual browsing &mdash; toggle between table and card layouts per resource.</p>
+            </div>
+
+            <input type="radio" name="screenshots" role="tab" class="tab text-xs" aria-label="Comments">
+            <div role="tabpanel" class="tab-content pt-6">
+              <div class="mockup-window bg-base-300 border border-base-300">
+                <img src="images/screenshots/platform-comments.avif" alt="Comments and @mentions with real-time collaboration" class="w-full">
+              </div>
+              <p class="mt-4 text-sm text-base-content/50">Comments with @mentions and real-time collaboration &mdash; on any resource, no custom code required.</p>
+            </div>
+
+            <input type="radio" name="screenshots" role="tab" class="tab text-xs" aria-label="Notifications">
+            <div role="tabpanel" class="tab-content pt-6">
+              <div class="mockup-window bg-base-300 border border-base-300">
+                <img src="images/screenshots/platform-notifications.avif" alt="In-app notifications and alerts" class="w-full">
+              </div>
+              <p class="mt-4 text-sm text-base-content/50">In-app notifications with mention alerts &mdash; convention-driven, not hand-built per feature.</p>
+            </div>
+
+          </div>
+
+          <!-- Built-in capabilities -->
+          <div class="mt-8 pt-6 border-t border-base-300">
+            <p class="text-sm text-base-content/50 mb-3">Built into every application &mdash; what you'd normally hand-build:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">Auth &amp; RBAC</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">Audit Trails</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">File Storage</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">Notifications</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">Search</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">Pagination</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">State Machines</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">@Mentions</span>
+              <span class="badge badge-sm badge-outline border-base-content/20 text-base-content/60">Theme Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       6. STAKEHOLDERS
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="stakeholders" class="py-16 md:py-24 scroll-mt-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 reveal">
+
+      <div class="bg-base-200 rounded border border-base-300">
+        <div class="terminal-header">
+          <span class="terminal-dot" style="background:#F85149"></span>
+          <span class="terminal-dot" style="background:#D29922"></span>
+          <span class="terminal-dot" style="background:#3FB950"></span>
+          <span class="text-xs text-base-content/40 ml-2">stakeholders &mdash; value matrix</span>
+        </div>
+
+        <div class="p-4 md:p-8">
+          <h2 class="text-2xl font-bold text-primary mb-2">Who It's For</h2>
+          <p class="text-base-content/50 text-sm mb-6">What each person gets from AI-augmented delivery.</p>
+
+          <div class="overflow-x-auto">
+            <table class="table text-sm">
+              <tbody>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content w-44">CEO</td>
+                  <td class="text-base-content/70">A low risk AI strategy that generates returns</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">CTO</td>
+                  <td class="text-base-content/70">Delivery capability, not vendor dependence</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">Solution Architect</td>
+                  <td class="text-base-content/70">Rigorous methodology, amplified by AI</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">Expert Developer</td>
+                  <td class="text-base-content/70">Business logic, not boilerplate</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">Product Owner</td>
+                  <td class="text-base-content/70">Working software in weeks, not quarters</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">Portfolio Manager</td>
+                  <td class="text-base-content/70">More initiatives shipped, less bottleneck</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">Security Lead</td>
+                  <td class="text-base-content/70">Compliance built in, not bolted on</td>
+                </tr>
+                <tr class="border-base-300">
+                  <td class="font-bold text-base-content">End User</td>
+                  <td class="text-base-content/70">One system that actually works</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       7. TECHNICAL FOUNDATION
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <section id="tech" class="py-16 md:py-24 scroll-mt-14">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 reveal">
+
+      <div class="bg-base-200 rounded border border-base-300">
+        <div class="terminal-header">
+          <span class="terminal-dot" style="background:#F85149"></span>
+          <span class="terminal-dot" style="background:#D29922"></span>
+          <span class="terminal-dot" style="background:#3FB950"></span>
+          <span class="text-xs text-base-content/40 ml-2">mix.exs &mdash; deps</span>
+        </div>
+
+        <div class="p-4 md:p-8">
+          <h2 class="text-2xl font-bold text-primary mb-2">Under the Hood</h2>
+          <p class="text-base-content/50 text-sm mb-6">For the CTO who wants to validate the technology choice.</p>
+
+          <!-- Tech stack badges -->
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="badge badge-primary badge-outline">Elixir</span>
+            <span class="badge badge-primary badge-outline">Phoenix</span>
+            <span class="badge badge-primary badge-outline">Ash Framework</span>
+            <span class="badge badge-primary badge-outline">PostgreSQL</span>
+            <span class="badge badge-primary badge-outline">Tailwind CSS</span>
+            <span class="badge badge-primary badge-outline">daisyUI</span>
+          </div>
+
+          <!-- Key points -->
+          <div class="space-y-3 mb-10 text-sm">
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5">&rsaquo;</span>
+              <p class="text-base-content/70"><strong class="text-base-content">Real code on open-source foundations</strong> &mdash; no proprietary runtime, no visual designer, no abstraction layer limiting what's possible</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5">&rsaquo;</span>
+              <p class="text-base-content/70"><strong class="text-base-content">AI works natively</strong> &mdash; reads, writes, and reasons about the codebase directly, with no proprietary translation layer</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5">&rsaquo;</span>
+              <p class="text-base-content/70"><strong class="text-base-content">AI-compatible by design</strong> &mdash; applications ship with open APIs, MCP server support, and tool-calling out of the box</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5">&rsaquo;</span>
+              <p class="text-base-content/70"><strong class="text-base-content">Convention-driven</strong> &mdash; declare what you want, the framework handles how. AI operates within well-defined guardrails</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5">&rsaquo;</span>
+              <p class="text-base-content/70"><strong class="text-base-content">Fully themeable</strong> &mdash; the platform's look adapts to your brand via daisyUI theming</p>
+            </div>
+          </div>
+
+          <!-- Code example -->
+          <h3 class="text-sm font-bold text-base-content/50 uppercase tracking-wider mb-4">Declarative Resource Definition</h3>
+
+          <div class="mockup-code bg-base-100 border border-base-300 text-sm">
+            <pre data-prefix=" "><code><span class="syntax-keyword">defmodule</span> <span class="syntax-module">MyApp.Catalog.Product</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>  <span class="syntax-keyword">use</span> <span class="syntax-module">Ash.Resource</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">extensions:</span> <span class="syntax-punctuation">[</span><span class="syntax-module">DeliveryFramework.Resource</span><span class="syntax-punctuation">]</span></code></pre>
+            <pre data-prefix=" "><code></code></pre>
+            <pre data-prefix=" "><code>  <span class="syntax-atom">ui</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-atom">display_field</span> <span class="syntax-atom">:name</span></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-atom">nav</span> <span class="syntax-keyword">do</span> <span class="syntax-atom">icon</span> <span class="syntax-string">"hero-cube"</span><span class="syntax-punctuation">;</span> <span class="syntax-atom">order</span> <span class="syntax-number">10</span> <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-atom">list</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>      <span class="syntax-atom">columns</span> <span class="syntax-punctuation">[</span><span class="syntax-atom">:name</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:status</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:price</span><span class="syntax-punctuation">]</span></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-atom">detail</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>      <span class="syntax-atom">section</span> <span class="syntax-string">"Product Info"</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>        <span class="syntax-atom">fields</span> <span class="syntax-punctuation">[</span><span class="syntax-atom">:name</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:description</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:price</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:status</span><span class="syntax-punctuation">]</span></code></pre>
+            <pre data-prefix=" "><code>      <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-atom">form</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>      <span class="syntax-atom">section</span> <span class="syntax-string">"Product Info"</span> <span class="syntax-keyword">do</span></code></pre>
+            <pre data-prefix=" "><code>        <span class="syntax-atom">fields</span> <span class="syntax-punctuation">[</span><span class="syntax-atom">:name</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:description</span><span class="syntax-punctuation">,</span> <span class="syntax-atom">:price</span><span class="syntax-punctuation">]</span></code></pre>
+            <pre data-prefix=" "><code>      <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code>    <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code>  <span class="syntax-keyword">end</span></code></pre>
+            <pre data-prefix=" "><code><span class="syntax-keyword">end</span></code></pre>
+          </div>
+
+          <p class="mt-4 text-sm text-base-content/50">This produces searchable list pages, detail pages with tabs, and create/edit forms &mdash; with zero LiveView code beyond thin macro wrappers.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       8. FOOTER / CTA
+       ════════════════════════════════════════════════════════════════════ -->
+
+  <footer id="contact" class="py-16 md:py-24 scroll-mt-14 border-t border-base-300">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 text-center reveal">
+
+      <p class="text-base-content/40 text-sm mb-4 font-bold">
+        <span class="text-primary">$</span> next-steps
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-base-content mb-4">Ready to talk about your next initiative?</h2>
+      <p class="text-base-content/50 text-sm mb-8 max-w-xl mx-auto">Whether you're evaluating AI strategy, replacing legacy systems, or launching a new digital initiative &mdash; let's talk about what AI-augmented delivery can do for your organization.</p>
+
+      <a href="mailto:hello@deliveryframe.work" class="btn btn-primary btn-lg">
+        Get in touch
+      </a>
+
+      <div class="mt-16 pt-8 border-t border-base-300 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2 text-primary font-bold text-sm">
+          <svg viewBox="0 0 32 32" class="w-5 h-5" aria-hidden="true">
+            <path fill="currentColor" d="M3,10 C3,-2 29,-2 29,10 Q29,12 27,12 Q23.5,8 20,12 Q16,8 12,12 Q8.5,8 5,12 Q3,12 3,10Z"/>
+            <g stroke="currentColor" stroke-width="0.7" stroke-linecap="round" fill="none">
+              <line x1="5" y1="12" x2="12.5" y2="23"/><line x1="12" y1="12" x2="14.5" y2="23"/>
+              <line x1="20" y1="12" x2="17.5" y2="23"/><line x1="27" y1="12" x2="19.5" y2="23"/>
+            </g>
+            <rect fill="currentColor" x="11" y="23" width="10" height="8"/>
+          </svg>
+          deliveryframe.work
+        </div>
+        <p class="text-xs text-base-content/30">&copy; 2025 DeliveryFramework. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

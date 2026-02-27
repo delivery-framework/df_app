@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="128" height="128">
+  <!-- Canopy dome with arcs pulled down at string points -->
+  <path fill="#D97757" d="
+    M3,10 C3,-2 29,-2 29,10
+    Q29,12 27,12
+    Q23.5,8 20,12
+    Q16,8 12,12
+    Q8.5,8 5,12
+    Q3,12 3,10Z"/>
+  <!-- Strings -->
+  <g stroke="#D97757" stroke-width="0.7" stroke-linecap="round" fill="none">
+    <line x1="5" y1="12" x2="12.5" y2="23"/>
+    <line x1="12" y1="12" x2="14.5" y2="23"/>
+    <line x1="20" y1="12" x2="17.5" y2="23"/>
+    <line x1="27" y1="12" x2="19.5" y2="23"/>
+  </g>
+  <!-- Cargo box -->
+  <rect fill="#D97757" x="11" y="23" width="10" height="8"/>
+</svg>
