@@ -16,7 +16,7 @@ body {
   --color-base-200: #161B22;
   --color-base-300: #1C2128;
   --color-base-content: #C9D1D9;
-  --color-primary: #D97757;
+  --color-primary: #3FB950;
   --color-primary-content: #F0F6FC;
   --color-secondary: #58A6FF;
   --color-secondary-content: #F0F6FC;
@@ -67,7 +67,7 @@ body::after {
 
 .cursor {
   animation: blink 1s step-end infinite;
-  color: #D97757;
+  color: #3FB950;
 }
 
 /* ─── Scroll reveal ─── */
@@ -100,7 +100,7 @@ pre.box-drawing {
 
 /* ─── Syntax highlighting ─── */
 
-.syntax-keyword { color: #D97757; }
+.syntax-keyword { color: #3FB950; }
 .syntax-module { color: #D29922; }
 .syntax-atom { color: #58A6FF; }
 .syntax-string { color: #3FB950; }
