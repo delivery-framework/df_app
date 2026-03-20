@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const typedEl = document.getElementById('typed-text');
   if (typedEl) {
-    const text = 'AI-augmented delivery that actually ships.';
+    const text = 'AI-assisted delivery that actually ships.';
     let i = 0;
 
     function typeChar() {
